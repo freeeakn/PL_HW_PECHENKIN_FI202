@@ -1,14 +1,14 @@
 #include "decorator.h"
-
 int main() {
-  setlocale(LC_ALL, "ru");
-  Hero *c = new Hero;
-  c = new Helmet(c);
-  c->getState();
-  c = new Boots(c);
-  c->getState();
-  c = new Sword(c);
-  c = new Chestplate(c);
-  c->getState();
+  Coffee *coffee = new Coffee();
+  coffee = new Cream(coffee);
+  coffee = new Sugar(coffee);
+  coffee = new Cinnamon(coffee);
+
+  std::cout << "Description: " << coffee->getDescription() << std::endl;
+  std::cout << "Cost: $" << coffee->getCost() << std::endl;
+
+  delete coffee;
+
   return 0;
 }

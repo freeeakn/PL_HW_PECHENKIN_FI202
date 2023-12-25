@@ -1,89 +1,62 @@
-﻿#include <iostream>
+﻿#ifndef DECORATOR_H
+#define DECORATOR_H
+#include <iostream>
 #include <string>
 
-class Hero {
+class Coffee {
 protected:
-  int hp, attack, armor, speed;
+  std::string description;
+  double cost;
 
 public:
-  Hero() : hp(100), attack(2), armor(0), speed(15) {}
+  Coffee() : description("Coffee"), cost(1.0) {}
 
-  virtual int getHp() { return hp; }
-  virtual int getAttack() { return attack; }
-  virtual int getSpeed() { return speed; }
-  virtual int getArmor() { return armor; }
-
-  void getState() {
-    std::cout << "\033[91m-----------\033[0m" << std::endl
-              << "Health: " << (this->getHp()) << std::endl
-              << "Attack: " << this->getAttack() << std::endl
-              << "Speed: " << this->getSpeed() << std::endl
-              << "Armor: " << this->getArmor() << std::endl
-              << "\033[91m-----------\033[0m" << std::endl;
-  }
+  virtual std::string getDescription() { return description; }
+  virtual double getCost() { return cost; }
 };
 
-class Helmet : public Hero {
+class Cream : public Coffee {
 protected:
-  Hero *hero;
+  Coffee *coffee;
 
 public:
-  Helmet(Hero *h) {
-    this->hero = h;
-    this->hp = 20;
-    this->armor = 5;
+  Cream(Coffee *c) {
+    this->coffee = c;
+    this->description = coffee->getDescription() + ", Cream";
+    this->cost = coffee->getCost() + 0.5;
   }
 
-  int getHp() { return hp + hero->getHp(); }
-  int getArmor() { return armor + hero->getArmor(); }
-  int getAttack() { return hero->getAttack(); }
-  int getSpeed() { return hero->getSpeed(); }
+  std::string getDescription() { return description; }
+  double getCost() { return cost; }
 };
 
-class Chestplate : public Hero {
+class Sugar : public Coffee {
 protected:
-  Hero *hero;
+  Coffee *coffee;
 
 public:
-  Chestplate(Hero *h) {
-    this->hero = h;
-    this->armor = 20;
-    this->speed = -5;
+  Sugar(Coffee *c) {
+    this->coffee = c;
+    this->description = coffee->getDescription() + ", Sugar";
+    this->cost = coffee->getCost() + 0.3;
   }
-  int getSpeed() { return speed + hero->getSpeed(); }
-  int getArmor() { return armor + hero->getArmor(); }
-  int getAttack() { return hero->getAttack(); }
-  int getHp() { return hero->getHp(); }
+
+  std::string getDescription() { return description; }
+  double getCost() { return cost; }
 };
 
-class Sword : public Hero {
+class Cinnamon : public Coffee {
 protected:
-  Hero *hero;
+  Coffee *coffee;
 
 public:
-  Sword(Hero *h) {
-    this->hero = h;
-    this->attack = 15;
-    this->speed = -2;
+  Cinnamon(Coffee *c) {
+    this->coffee = c;
+    this->description = coffee->getDescription() + ", Cinnamon";
+    this->cost = coffee->getCost() + 0.2;
   }
-  int getSpeed() { return speed + hero->getSpeed(); }
-  int getAttack() { return attack + hero->getAttack(); }
-  int getHp() { return hero->getHp(); }
-  int getArmor() { return hero->getArmor(); }
-};
 
-class Boots : public Hero {
-protected:
-  Hero *hero;
-
-public:
-  Boots(Hero *h) {
-    this->hero = h;
-    this->speed = 10;
-    this->hp = 5;
-  }
-  int getSpeed() { return speed + hero->getSpeed(); }
-  int getHp() { return hp + hero->getHp(); }
-  int getArmor() { return hero->getArmor(); }
-  int getAttack() { return hero->getAttack(); }
+  std::string getDescription() { return description; }
+  double getCost() { return cost; }
 };
+#endif //DECORATOR_H
