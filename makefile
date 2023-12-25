@@ -20,8 +20,8 @@ all:
 	$(CC) $(FLAGS) src/fabric/fabric.cpp -o fabric
 
 lint:
-	$(FORMAT) *.h
-	$(FORMAT) *.cpp
+	$(FORMAT) src/**/*.h
+	$(FORMAT) src/**/*.cpp
 
 clean:
 	rm -rf $(FILENAME)

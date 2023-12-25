@@ -1,14 +1,21 @@
 #include "decorator.h"
+
 int main() {
-  Coffee *coffee = new Coffee();
-  coffee = new Cream(coffee);
-  coffee = new Sugar(coffee);
-  coffee = new Cinnamon(coffee);
+  // Создаем базовый чай
+  Tea* tea = new Tea();
+  tea->getState();
 
-  std::cout << "Description: " << coffee->getDescription() << std::endl;
-  std::cout << "Cost: $" << coffee->getCost() << std::endl;
+  // Декорируем чай молоком
+  Tea* teaWithMilk = new Milk(tea);
+  teaWithMilk->getState();
 
-  delete coffee;
+  // Декорируем чай сахаром
+  Tea* teaWithMilkAndSugar = new Sugar(teaWithMilk);
+  teaWithMilkAndSugar->getState();
+
+  // Декорируем чай сиропом
+  Tea* teaWithMilkSugarAndSyrup = new Syrup(teaWithMilkAndSugar, 2);
+  teaWithMilkSugarAndSyrup->getState();
 
   return 0;
 }
