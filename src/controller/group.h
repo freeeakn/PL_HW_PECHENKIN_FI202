@@ -1,7 +1,6 @@
 #include "student.h"
 #include <iostream>
 #include <string>
-#include <vector>
 
 class Group {
 private:
@@ -85,14 +84,9 @@ public:
     bad.print();
   }
   void displayStudents() {
-    int m = 1;
     for (int i = 0; i < n; i++) {
-      student currentStudent = students[i];
-      if (currentStudent.averageRatings() < 2.5) {
-        std::cout << m << ": ";
-        currentStudent.print();
-        m++;
-      }
+      std::cout << i + 1 << ": ";
+      students[i].print();
     }
   }
 };

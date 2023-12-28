@@ -1,5 +1,7 @@
-#include "fabric.h"
+#include "controller.h"
 
 int main() {
-    return 0;
+  Controller fabric;
+  fabric.execute();
+  return 0;
 }

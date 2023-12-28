@@ -15,11 +15,11 @@ public:
   virtual int getTemperature() { return temperature; }
 
   void getState() {
-    std::cout << "\033[91m-----------\033[0m" << std::endl
+    std::cout << "\033[91m################\033[0m" << std::endl
               << "Strength: " << (this->getStrength()) << std::endl
               << "Bitterness: " << this->getBitterness() << std::endl
               << "Temperature: " << this->getTemperature() << std::endl
-              << "\033[91m-----------\033[0m" << std::endl;
+              << "\033[91m################\033[0m" << std::endl;
   }
 };
 
@@ -29,9 +29,9 @@ protected:
 
 public:
   Milk(Tea *t) {
-    this->tea = t;
-    this->strength -= 20;
-    this->bitterness -= 10;
+    tea = t;
+    strength -= 20;
+    bitterness -= 10;
   }
 
   int getStrength() { return strength + tea->getStrength(); }
@@ -45,8 +45,8 @@ protected:
 
 public:
   Sugar(Tea *t) {
-    this->tea = t;
-    this->bitterness -= 20;
+    tea = t;
+    bitterness -= 20;
   }
 
   int getStrength() { return tea->getStrength(); }
@@ -65,14 +65,5 @@ public:
   int getStrength() { return tea->getStrength(); }
   int getBitterness() { return tea->getBitterness(); }
   int getTemperature() { return tea->getTemperature(); }
-
-  void getState() {
-    std::cout << "\033[91m-----------\033[0m" << std::endl
-              << "Strength: " << (this->getStrength()) << std::endl
-              << "Bitterness: " << this->getBitterness() << std::endl
-              << "Temperature: " << this->getTemperature() << std::endl
-              << "Flavor: " << flavor << std::endl
-              << "\033[91m-----------\033[0m" << std::endl;
-  }
 };
-#endif //DECORATOR_H
+#endif // DECORATOR_H

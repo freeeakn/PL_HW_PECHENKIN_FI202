@@ -8,7 +8,7 @@ private:
   std::string firstName, lastName;
   int *ratings;
   int n;
-  std::string id; // Unique identifier
+  std::string id;
 
 public:
   student() {
@@ -19,7 +19,7 @@ public:
     ratings = new int[n];
     for (int i = 0; i < n; i++)
       ratings[i] = rand() % 5 + 1;
-    generateID(); // Generate a unique ID
+    generateID();
   }
 
   student(std::string firstName, std::string lastName, int k) {
@@ -30,7 +30,7 @@ public:
     ratings = new int[n];
     for (int i = 0; i < n; i++)
       ratings[i] = rand() % 5 + 1;
-    generateID(); // Generate a unique ID
+    generateID();
   }
 
   std::string getFirstName() { return firstName; }
@@ -41,7 +41,7 @@ public:
 
   int getN() { return n; }
 
-  std::string getID() { return id; } // Getter for the unique ID
+  std::string getID() { return id; }
 
   void print() {
     std::cout << "ID: " << id << ", " << lastName << " " << firstName
@@ -60,7 +60,6 @@ public:
 
 private:
   void generateID() {
-    // Generate a unique ID based on current time
     time_t now = time(0);
     id = std::to_string(now);
   }

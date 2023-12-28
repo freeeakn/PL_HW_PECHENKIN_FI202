@@ -9,6 +9,15 @@ private:
 
 public:
   controller() {}
+  void menu() {
+    std::cout << "Commands: \n"
+              << "1. Add student\n"
+              << "2. Del student by index\n"
+              << "3. Sort student\n"
+              << "4. Top of student\n"
+              << "5. Display students\n"
+              << "6. exit\n";
+  }
   void execute() {
     int run = 1;
     while (run) {
@@ -38,7 +47,7 @@ public:
         currentGroup.sort();
         break;
       case 4:
-        std::cout << "Top of students:\n";
+        std::cout << "average marks of students:\n";
         currentGroup.theBestTheWorth();
         break;
       case 5:
@@ -48,15 +57,5 @@ public:
       }
     }
   }
-
-  void menu() {
-    std::cout << "Commands: \n"
-              << "1. Add student\n"
-              << "2. Del student by index\n"
-              << "3. Sort student\n"
-              << "4. Top of student\n"
-              << "5. Display students\n"
-              << "6. exit\n";
-  }
 };
-#endif //CONTROLLER_H
+#endif // CONTROLLER_H
