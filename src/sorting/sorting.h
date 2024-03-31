@@ -2,9 +2,9 @@
 #define SORTING_H
 
 #include <iostream>
-#include <vector>
-#include <string>
 #include <random>
+#include <string>
+#include <vector>
 
 using namespace std;
 
@@ -38,6 +38,24 @@ public:
     this->info.lastName = lastName;
     this->info.name = name;
     this->info.surName = surName;
+  }
+
+  People(const string lastName, const string name, const string surName,
+         const string birthDate, const double brainVolume) {
+    /**
+     * @brief Constructs a new People object
+     *
+     * @param lastName string containing the last name of the person
+     * @param name string containing the first name of the person
+     * @param surname string containing the surname of the person
+     * @param birthDate string containing the birth date of the person
+     * @param brainVolume double containing the brain volume of the person
+     */
+    this->info.lastName = lastName;
+    this->info.name = name;
+    this->info.surName = surName;
+    this->birthDate = birthDate;
+    this->brainVolume = brainVolume;
   }
   //? Getters
 
@@ -157,20 +175,24 @@ public:
     // delete the person object
     delete newPerson;
   }
-  /**
-   * Removes a person from the list of people
-   * @param lastName string containing the last name of the person
-   * @param name string containing the first name of the person
-   * @param surname string containing the surname of the person
-   */
 };
-
 
 string generateRandomString(unsigned const int length);
 void bubbleSort(Peoples &peopleList);
-// void insertionSort(Peoples &peopleList);
-// void selectionSort(Peoples &peopleList);
-// void mergeSort(Peoples &peopleList);
-// void quickSort(Peoples &peopleList);
+void selectionSort(Peoples &peopleList);
+void merge(Peoples &list, int left, int middle, int right);
+void mergeSortHelper(Peoples &list, int left, int right);
+void mergeSort(Peoples &peopleList);
+int partition(Peoples &list, int low, int high);
+void quickSortHelper(Peoples &list, int low, int high);
+void quickSort(Peoples &peopleList);
+void shellSort(Peoples &peopleList);
+void heapify(Peoples &peopleList, int n, int i);
+void heapSort(Peoples &peopleList);
+void bucketSort(Peoples &peopleList);
+void countingSort(Peoples &peopleList, int place);
+void radixSort(Peoples &peopleList);
+void insertionSort(Peoples &peopleList, int left, int right);
+void timSort(Peoples &peopleList);
 
 #endif // SORTING_H
