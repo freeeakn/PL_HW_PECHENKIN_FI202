@@ -1,15 +1,28 @@
 /**
  * @file main.cpp
  * @author Arthur Pechenkin
- * @brief A brief description of the program.
+ * @brief This program defines two classes, People and Peoples, for managing and sorting a list of people.
  *
  * A longer description of the program, possibly including:
- * - A brief background on the problem the program aims to solve.
- * - A description of the main functions and features of the program.
- * - A list of any libraries or frameworks used in the program.
- * - Any other relevant information about the program.
+ * This is a C++ file that defines a variety of sorting algorithms and a `People` class for storing and manipulating person objects.
+ * The `People` class has the following properties and methods:
+ * `info`: A `LNS` struct containing the person's last name, name, and surName.
+ * `birthDate`: A string containing the person's birth date.
+ * `brainVolume`: A double containing the person's brain volume.
+ * `getInfo()`: Returns a copy of the `LNS` struct containing the person's information.
+ * `getBirthDate()`: Returns a copy of the string containing the person's birth date.
+ * `getBrainVolume()`: Returns a copy of the double containing the person's brain volume.
+ * `setInfo(lastName, name, surname)`: Sets the person's information.
+ * `setBirthDate(date)`: Sets the person's birth date.
+ * `setBrainVolume(brainVolume)`: Sets the person's brain volume.
+ * The `Peoples` class is a container for a list of `People` objects. It has the
+ * following properties and methods:
+ * `peopleList`: A vector of `People` objects.
+ * `getPeopleList()`: Returns a copy of the vector containing all the people.
+ * `addPerson(lastName, name, surname, birthDate, brainVolume)`: Adds a new person to the list.
+ * Overall, this file provides a simple way to store and manipulate a list of people and sort them using a variety of algorithms.
  *
- * @version 0.1
+ * @version 0.2
  * @date 31-03-2024
  *
  * @copyright Copyright (c) 2024 Arthur Pechenkin. All rights reserved.
@@ -460,18 +473,22 @@ void insertionSort(Peoples &peopleList, int left, int right) {
 }
 
 /**
- * @brief Timsort is an adaptive hybrid sorting algorithm that uses both insertion sort and merge sort.
+ * @brief Timsort is an adaptive hybrid sorting algorithm that uses both
+ * insertion sort and merge sort.
  *
- * Timsort works by splitting the input array into smaller sub-arrays and sorting them using insertion sort.
- * Then, it merges the sorted sub-arrays back into a single sorted array. This process is repeated until
- * the entire input array is sorted.
+ * Timsort works by splitting the input array into smaller sub-arrays and
+ * sorting them using insertion sort. Then, it merges the sorted sub-arrays back
+ * into a single sorted array. This process is repeated until the entire input
+ * array is sorted.
  *
- * Timsort is an adaptive sorting algorithm, which means it can automatically choose the best sorting
- * algorithm for each sub-array based on its size and content. This improves the performance of the
- * algorithm compared to a generic sorting algorithm that uses the same sorting algorithm for all sub-arrays.
+ * Timsort is an adaptive sorting algorithm, which means it can automatically
+ * choose the best sorting algorithm for each sub-array based on its size and
+ * content. This improves the performance of the algorithm compared to a generic
+ * sorting algorithm that uses the same sorting algorithm for all sub-arrays.
  *
- * Timsort is an efficient sorting algorithm, especially for large input arrays. It is faster than most
- * other stable sorting algorithms, such as merge sort and quick sort.
+ * Timsort is an efficient sorting algorithm, especially for large input arrays.
+ * It is faster than most other stable sorting algorithms, such as merge sort
+ * and quick sort.
  *
  * @param peopleList The input list of people to be sorted.
  */
