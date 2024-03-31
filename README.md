@@ -33,11 +33,23 @@
         ├── decorator.h
         └── fabric.cpp
 
+## Sorting (make sort)
+
+    src
+    ├── sorting
+        ├── sorting.h
+        └── sorting.cpp
+
 ## Compile
 
     Для для работы программы необходимо скомпилировать сборку:
 
     make
+    make polygons
+    make mvc
+    make fabric
+    make decorator
+    make sort
 
 ## Автор
 
