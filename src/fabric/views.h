@@ -56,14 +56,16 @@ public:
   int getStudentCount() {
     unsigned int localCount = 0;
     for (unsigned int i = 0; i < localCount; i++)
-      people[i]->getState() == 0 ? localCount++ : NULL;
+      if (people[i]->getState() == 0)
+        localCount++;
     return localCount;
   }
 
   int getTeacherCount() {
     unsigned int localCount = 0;
     for (unsigned int i = 0; i < localCount; i++)
-      people[i]->getState() == 1 ? localCount++ : NULL;
+      if (people[i]->getState() == 1)
+        localCount++;
     return localCount;
   }
 
@@ -139,8 +141,10 @@ public:
     People **copyPeople = new People *[this->count - 1];
     for (unsigned int i = 0; i < this->count; i++) {
       People *current = people[i];
-      current->getState() == type ? localCount1++ : NULL;
-      localCount1 == index ? i++ : NULL;
+      if (current->getState() == type)
+        localCount1++;
+      if (localCount1 == index)
+        i++;
       if (i < this->count)
         copyPeople[localCount2] = people[i];
       localCount2++;
@@ -153,7 +157,8 @@ public:
     unsigned int localCount = 0;
     for (unsigned int i = 0; i < this->count; i++) {
       People *current = people[i];
-      current->getState() == type ? localCount++ : NULL;
+      if (current->getState() == type)
+        localCount++;
       if (localCount == index && i < this->count) {
         current->change();
         break;

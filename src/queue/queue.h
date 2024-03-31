@@ -6,17 +6,23 @@
  * @author Arthur Pechenkin
  * @brief Implementation of a queue data structure using linked lists.
  *
- * This is a C++ header file that defines a queue class, which is a data structure that allows elements to be added at the end and removed from the front. The class has the following properties and methods:
- * `front`: A pointer to the node at the front of the queue.
- * `rear`: A pointer to the node at the rear of the queue.
- * The class has the following methods:
- * `Queue()`: The constructor, which initializes the queue with empty.
- * `~Queue()`: The destructor, which deletes all nodes in the queue and sets `front` and `rear` to null.
- * `enqueue(int value)`: Inserts a new node at the back of the queue with the given value. If the queue is empty, the new node becomes the front and rear of the queue.
- * `dequeue()`: Removes the node at the front of the queue and returns its data. If the queue is empty, it returns -1.
- * `isEmpty()`: Returns true if the queue is empty, false otherwise.
- * The class also includes a `Node` struct, which represents a node in the queue. Each node has a `data` field and a `next` field that points to the next node in the queue.
- * The file includes a comment at the top that provides a brief description of the program, the author, version, date, and copyright information.
+ * This is a C++ header file that defines a queue class, which is a data
+ * structure that allows elements to be added at the end and removed from the
+ * front. The class has the following properties and methods: `front`: A pointer
+ * to the node at the front of the queue. `rear`: A pointer to the node at the
+ * rear of the queue. The class has the following methods: `Queue()`: The
+ * constructor, which initializes the queue with empty.
+ * `~Queue()`: The destructor, which deletes all nodes in the queue and sets
+ * `front` and `rear` to null. `enqueue(int value)`: Inserts a new node at the
+ * back of the queue with the given value. If the queue is empty, the new node
+ * becomes the front and rear of the queue. `dequeue()`: Removes the node at the
+ * front of the queue and returns its data. If the queue is empty, it returns
+ * -1. `isEmpty()`: Returns true if the queue is empty, false otherwise. The
+ * class also includes a `Node` struct, which represents a node in the queue.
+ * Each node has a `data` field and a `next` field that points to the next node
+ * in the queue. The file includes a comment at the top that provides a brief
+ * description of the program, the author, version, date, and copyright
+ * information.
  * @version 0.1
  * @date 01-04-2024
  *
@@ -40,7 +46,7 @@ public:
   /**
    * @brief constructs an empty queue
    */
-  Queue::Queue() {
+  Queue() {
     front = nullptr;
     rear = nullptr;
   }

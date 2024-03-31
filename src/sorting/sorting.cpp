@@ -1,26 +1,27 @@
 /**
  * @file main.cpp
  * @author Arthur Pechenkin
- * @brief This program defines two classes, People and Peoples, for managing and sorting a list of people.
+ * @brief This program defines two classes, People and Peoples, for managing and
+ * sorting a list of people.
  *
  * A longer description of the program, possibly including:
- * This is a C++ file that defines a variety of sorting algorithms and a `People` class for storing and manipulating person objects.
- * The `People` class has the following properties and methods:
- * `info`: A `LNS` struct containing the person's last name, name, and surName.
- * `birthDate`: A string containing the person's birth date.
- * `brainVolume`: A double containing the person's brain volume.
- * `getInfo()`: Returns a copy of the `LNS` struct containing the person's information.
- * `getBirthDate()`: Returns a copy of the string containing the person's birth date.
- * `getBrainVolume()`: Returns a copy of the double containing the person's brain volume.
- * `setInfo(lastName, name, surname)`: Sets the person's information.
- * `setBirthDate(date)`: Sets the person's birth date.
- * `setBrainVolume(brainVolume)`: Sets the person's brain volume.
- * The `Peoples` class is a container for a list of `People` objects. It has the
- * following properties and methods:
- * `peopleList`: A vector of `People` objects.
- * `getPeopleList()`: Returns a copy of the vector containing all the people.
- * `addPerson(lastName, name, surname, birthDate, brainVolume)`: Adds a new person to the list.
- * Overall, this file provides a simple way to store and manipulate a list of people and sort them using a variety of algorithms.
+ * This is a C++ file that defines a variety of sorting algorithms and a
+ * `People` class for storing and manipulating person objects. The `People`
+ * class has the following properties and methods: `info`: A `LNS` struct
+ * containing the person's last name, name, and surName. `birthDate`: A string
+ * containing the person's birth date. `brainVolume`: A double containing the
+ * person's brain volume. `getInfo()`: Returns a copy of the `LNS` struct
+ * containing the person's information. `getBirthDate()`: Returns a copy of the
+ * string containing the person's birth date. `getBrainVolume()`: Returns a copy
+ * of the double containing the person's brain volume. `setInfo(lastName, name,
+ * surname)`: Sets the person's information. `setBirthDate(date)`: Sets the
+ * person's birth date. `setBrainVolume(brainVolume)`: Sets the person's brain
+ * volume. The `Peoples` class is a container for a list of `People` objects. It
+ * has the following properties and methods: `peopleList`: A vector of `People`
+ * objects. `getPeopleList()`: Returns a copy of the vector containing all the
+ * people. `addPerson(lastName, name, surname, birthDate, brainVolume)`: Adds a
+ * new person to the list. Overall, this file provides a simple way to store and
+ * manipulate a list of people and sort them using a variety of algorithms.
  *
  * @version 0.2
  * @date 31-03-2024
@@ -443,7 +444,7 @@ void countingSort(Peoples &peopleList, int place) {
  */
 void radixSort(Peoples &peopleList) {
   int maxBrainVolume = peopleList.getPeopleList()[0].getBrainVolume();
-  for (int i = 1; i < peopleList.getPeopleList().size(); i++) {
+  for (unsigned int i = 1; i < peopleList.getPeopleList().size(); i++) {
     if (peopleList.getPeopleList()[i].getBrainVolume() > maxBrainVolume)
       maxBrainVolume = peopleList.getPeopleList()[i].getBrainVolume();
   }
@@ -493,14 +494,14 @@ void insertionSort(Peoples &peopleList, int left, int right) {
  * @param peopleList The input list of people to be sorted.
  */
 void timSort(Peoples &peopleList) {
-  int size = peopleList.getPeopleList().size();
+  int pSize = peopleList.getPeopleList().size();
   int blockSize = 32;
 
-  for (int i = 0; i < size; i += blockSize) {
-    insertionSort(peopleList, i, min((i + blockSize - 1), (size - 1)));
+  for (int i = 0; i < pSize; i += blockSize) {
+    insertionSort(peopleList, i, min((i + blockSize - 1), (pSize - 1)));
   }
 
-  for (int size = blockSize; size < size; size = 2 * size) {
+  for (int size = blockSize; size < pSize; size = 2 * size) {
     for (int left = 0; left < size; left += 2 * size) {
       int mid = left + size - 1;
       int right = min((left + 2 * size - 1), (size - 1));
