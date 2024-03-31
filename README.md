@@ -5,14 +5,14 @@
 ## Polygons + Triangles and Squares
 
     src
-    ├── polygons
+    └── polygons
         ├── polygons.h
         └── polygons.cpp
 
 ## Controller
 
     src
-    ├── controller
+    └── controller
         ├── controller.h
         ├── student.h
         ├── group.h
@@ -21,7 +21,7 @@
 ## Fabric
 
     src
-    ├── fabric
+    └── fabric
         ├── fabric.h
         ├── student.h
         └── fabric.cpp
@@ -29,16 +29,28 @@
 ## Decorator
 
     src
-    ├── decorator
+    └── decorator
         ├── decorator.h
         └── fabric.cpp
 
 ## Sorting (make sort)
 
     src
-    ├── sorting
+    └── sorting
         ├── sorting.h
         └── sorting.cpp
+
+## Queue
+
+    src
+    └── queue
+        └── queue.h
+
+## Graphs
+
+    src
+    └── graphs
+        └── bSearch
 
 ## Compile
 
@@ -50,6 +62,7 @@
     make fabric
     make decorator
     make sort
+    make bSearch
 
 ## Автор
 
