@@ -459,18 +459,34 @@ void insertionSort(Peoples &peopleList, int left, int right) {
   }
 }
 
+/**
+ * @brief Timsort is an adaptive hybrid sorting algorithm that uses both insertion sort and merge sort.
+ *
+ * Timsort works by splitting the input array into smaller sub-arrays and sorting them using insertion sort.
+ * Then, it merges the sorted sub-arrays back into a single sorted array. This process is repeated until
+ * the entire input array is sorted.
+ *
+ * Timsort is an adaptive sorting algorithm, which means it can automatically choose the best sorting
+ * algorithm for each sub-array based on its size and content. This improves the performance of the
+ * algorithm compared to a generic sorting algorithm that uses the same sorting algorithm for all sub-arrays.
+ *
+ * Timsort is an efficient sorting algorithm, especially for large input arrays. It is faster than most
+ * other stable sorting algorithms, such as merge sort and quick sort.
+ *
+ * @param peopleList The input list of people to be sorted.
+ */
 void timSort(Peoples &peopleList) {
-  int n = peopleList.getPeopleList().size();
+  int size = peopleList.getPeopleList().size();
   int blockSize = 32;
 
-  for (int i = 0; i < n; i += blockSize) {
-    insertionSort(peopleList, i, min((i + blockSize - 1), (n - 1)));
+  for (int i = 0; i < size; i += blockSize) {
+    insertionSort(peopleList, i, min((i + blockSize - 1), (size - 1)));
   }
 
-  for (int size = blockSize; size < n; size = 2 * size) {
-    for (int left = 0; left < n; left += 2 * size) {
+  for (int size = blockSize; size < size; size = 2 * size) {
+    for (int left = 0; left < size; left += 2 * size) {
       int mid = left + size - 1;
-      int right = min((left + 2 * size - 1), (n - 1));
+      int right = min((left + 2 * size - 1), (size - 1));
 
       if (peopleList.getPeopleList()[mid].getBirthDate() <=
           peopleList.getPeopleList()[right].getBirthDate()) {
